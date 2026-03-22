@@ -176,9 +176,23 @@
                                 <a href="#" target="_blank" class="link-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                                 <a href="https://github.com/prai-10" target="_blank" class="link-btn"><i class="fab fa-github"></i> GitHub</a>
                             </div>
+                            </div>
                         </div>
                     </div>
 
+                    <div class="card project-card">
+                        <div class="card-badge badge-accent">Client Work</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Plants Mantra</h3>
+                            <p class="card-desc">Designed and developed a comprehensive client website including an 'About Us' section and informational blog pages.</p>
+                            <div class="tech-stack">
+                                <span>Web Development</span><span>UI/UX</span><span>Copywriting</span>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://www.plantsmantra.com" target="_blank" class="link-btn"><i class="fas fa-external-link-alt"></i> Live Website</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="center-btn-container">
                     <a href="#" class="btn btn-outline">View All Projects</a>
@@ -362,22 +376,23 @@
                                 <span>GitHub</span>
                             </a>
                         </div>
-                        <a href="#" class="btn btn-primary mt-4"><i class="fas fa-download"></i> Download Resume</a>
+                        <a href="resume.pdf" target="_blank" class="btn btn-primary mt-4"><i class="fas fa-download"></i> Download Resume</a>
                     </div>
                     <div class="contact-form-container card">
-                        <form class="contact-form" id="contactForm"
-                            onsubmit="event.preventDefault(); alert('Message sent successfully! (Frontend demo)');">
+                        <form class="contact-form" action="https://formsubmit.co/pratibhamanral.10@gmail.com" method="POST">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://prai-10.github.io">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" id="name" required placeholder="John Doe">
+                                <input type="text" id="name" name="name" required placeholder="Jane Doe">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" required placeholder="john@example.com">
+                                <input type="email" id="email" name="email" required placeholder="jane@example.com">
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" rows="5" required placeholder="Your message..."></textarea>
+                                <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Send Message</button>
                         </form>
