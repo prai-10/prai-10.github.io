@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Velocity Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font for racing numbers and sleek geometric tech feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Montserrat:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body data-theme="ferrari">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand"><i class="fa-solid fa-flag-checkered"></i> PRATIBHA<span class="accent">.DEV</span></div>
+        <ul class="nav-links">
+            <li><a href="#telemetry">Telemetry</a></li>
+            <li><a href="#projects">Constructors</a></li>
+            <li><a href="#contact">Pit Stop</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Theme Switcher Sidebar -->
+    <div class="theme-switcher">
+        <div class="theme-label">Select Constructor</div>
+        <button class="theme-btn active" data-theme="ferrari" aria-label="Ferrari" title="Ferrari"></button>
+        <button class="theme-btn" data-theme="mercedes" aria-label="Mercedes" title="Mercedes"></button>
+        <button class="theme-btn" data-theme="redbull" aria-label="Red Bull" title="Red Bull"></button>
+        <button class="theme-btn" data-theme="mclaren" aria-label="McLaren" title="McLaren"></button>
+        <button class="theme-btn" data-theme="astonmartin" aria-label="Aston Martin" title="Aston Martin"></button>
+        <button class="theme-btn" data-theme="alpine" aria-label="Alpine" title="Alpine"></button>
+        <button class="theme-btn" data-theme="williams" aria-label="Williams" title="Williams"></button>
+        <button class="theme-btn" data-theme="sauber" aria-label="Kick Sauber" title="Kick Sauber"></button>
+        <button class="theme-btn" data-theme="haas" aria-label="Haas" title="Haas"></button>
+        <button class="theme-btn" data-theme="rb" aria-label="RB" title="RB"></button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="greeting">System Check: Optimal</p>
+            <h1 class="hero-title">ALEX VANCE</h1>
+            <h2 class="hero-subtitle">HIGH-VELOCITY <span class="accent">SOFTWARE ENGINEER</span></h2>
+            <p class="hero-desc">Building lightning-fast, highly optimized backend systems and front-end architectures that perform under the highest pressure.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">START THE ENGINE <i class="fa-solid fa-gauge-high"></i></a>
+            </div>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="speed-lines"></div>
+            <div class="racing-number">44</div>
+        </div>
+    </section>
+
+    <!-- Stats / Telemetry Section -->
+    <section id="telemetry" class="container">
+        <h2 class="section-title">CAREER <span class="accent">TELEMETRY</span></h2>
+        <div class="grid stats-grid">
+            <div class="stat-card">
+                <i class="fa-solid fa-stopwatch stat-icon"></i>
+                <h3 class="stat-number">4+</h3>
+                <p>Years in the Paddock (Experience)</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-code-branch stat-icon"></i>
+                <h3 class="stat-number">10k+</h3>
+                <p>Lines of Code Optimized</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-server stat-icon"></i>
+                <h3 class="stat-number">99.9%</h3>
+                <p>Server Uptime Maintained</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-trophy stat-icon"></i>
+                <h3 class="stat-number">12</h3>
+                <p>Championships (Projects Deployed)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section id="projects" class="container section-padding">
+        <h2 class="section-title">TOP <span class="accent">CONSTRUCTORS</span> (PROJECTS)</h2>
+        <div class="grid projects-grid">
+            <div class="project-card">
+                <div class="project-overlay">
+                    <h3 class="project-title">Turbo Backend Engine</h3>
+                    <p class="project-desc">A highly scalable Node.js microservices architecture handling 10,000 requests per second with sub-50ms latency during traffic surges.</p>
+                    <div class="tech-stack"><span>Node.js</span><span>Redis</span><span>Docker</span></div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-overlay">
+                    <h3 class="project-title">Pit Stop Deployment Pipeline</h3>
+                    <p class="project-desc">Fully automated robust CI/CD pipeline reducing build and deploy times by 65%, allowing instant hotfixes in live production domains.</p>
+                    <div class="tech-stack"><span>Jenkins</span><span>AWS</span><span>Kubernetes</span></div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-overlay">
+                    <h3 class="project-title">Racing Line Analytics</h3>
+                    <p class="project-desc">Real-time data visualization dashboard monitoring user telemetry metrics and API consumption using React and high-speed WebSockets.</p>
+                    <div class="tech-stack"><span>React</span><span>WebSockets</span><span>D3.js</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container section-padding">
+        <div class="contact-box">
+            <h2 class="contact-title">READY TO <span class="accent">RACE</span>?</h2>
+            <p class="contact-desc">Looking for an engineer to accelerate your next sprint cycle and deliver championship-winning code? Let's get in touch.</p>
+            <a href="mailto:dummy@example.com" class="btn btn-primary">BOX TO PIT (CONTACT ME)</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Pratibha Manral. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
