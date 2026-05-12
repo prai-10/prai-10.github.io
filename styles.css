@@ -370,7 +370,34 @@ section {
 
 /* Projects Sections */
 .cards-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    padding-bottom: 1.5rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) #111;
+}
+
+.cards-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cards-grid::-webkit-scrollbar-track {
+    background: #111;
+    border-radius: 4px;
+}
+
+.cards-grid::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+.cards-grid .card {
+    min-width: 350px;
+    max-width: 350px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
 }
 
 .project-card {
