@@ -104,4 +104,54 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = "none";
         }
     });
+
+    // Expand/Collapse Logic for Grids
+    const grids = document.querySelectorAll('.cards-grid, .design-grid');
+    
+    grids.forEach(grid => {
+        // Find how many actual items are in the grid (excluding any buttons we add)
+        const items = grid.querySelectorAll('.card, .design-item');
+        
+        if (items.length > 3) {
+            grid.classList.add('collapsed');
+            
+            // Create expand button container
+            const btnContainer = document.createElement('div');
+            btnContainer.className = 'expand-btn-container';
+            
+            // Create expand button
+            const btn = document.createElement('button');
+            btn.className = 'expand-btn';
+            btn.innerHTML = '<i class="fas fa-chevron-down"></i>';
+            btn.setAttribute('aria-label', 'Show more');
+            
+            btnContainer.appendChild(btn);
+            grid.appendChild(btnContainer);
+            
+            // Handle click event
+            btn.addEventListener('click', () => {
+                grid.classList.toggle('collapsed');
+                const icon = btn.querySelector('i');
+                
+                if (grid.classList.contains('collapsed')) {
+                    // Changing to show less
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                    
+                    // Smooth scroll back up to the start of this grid section
+                    const section = grid.closest('section');
+                    if (section) {
+                        window.scrollTo({
+                            top: section.offsetTop - 60,
+                            behavior: 'smooth'
+                        });
+                    }
+                } else {
+                    // Changing to show more
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        }
+    });
 });
