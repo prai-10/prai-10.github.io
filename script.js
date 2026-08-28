@@ -105,51 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Expand/Collapse Logic for Cards Grid (Projects)
-    const cardsGrids = document.querySelectorAll('.cards-grid');
-    cardsGrids.forEach(grid => {
-        const items = grid.querySelectorAll('.card');
-        if (items.length > 3) {
-            grid.classList.add('collapsed');
-            
-            const btnContainer = document.createElement('div');
-            btnContainer.className = 'expand-btn-container';
-            
-            const btn = document.createElement('button');
-            btn.className = 'expand-btn';
-            btn.innerHTML = '<i class="fas fa-chevron-down"></i>';
-            btn.setAttribute('aria-label', 'Show more');
-            
-            btnContainer.appendChild(btn);
-            grid.appendChild(btnContainer);
-            
-            btn.addEventListener('click', () => {
-                grid.classList.toggle('collapsed');
-                const icon = btn.querySelector('i');
-                
-                if (grid.classList.contains('collapsed')) {
-                    icon.classList.remove('fa-chevron-up');
-                    icon.classList.add('fa-chevron-down');
-                    
-                    const section = grid.closest('section');
-                    if (section) {
-                        window.scrollTo({
-                            top: section.offsetTop - 60,
-                            behavior: 'smooth'
-                        });
-                    }
-                } else {
-                    icon.classList.remove('fa-chevron-down');
-                    icon.classList.add('fa-chevron-up');
-                }
-            });
-        }
-    });
-
-    // Horizontal Slider Logic for Design Grids
-    const designGrids = document.querySelectorAll('.design-grid');
-    designGrids.forEach(grid => {
-        const items = grid.querySelectorAll('.design-item');
+    // Horizontal Slider Logic for Grids (.cards-grid and .design-grid)
+    const sliderGrids = document.querySelectorAll('.cards-grid, .design-grid');
+    sliderGrids.forEach(grid => {
+        const items = grid.querySelectorAll('.card, .design-item');
         if (items.length > 3) {
             // Create controls
             const controls = document.createElement('div');
@@ -168,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             controls.appendChild(prevBtn);
             controls.appendChild(nextBtn);
             
-            // Append controls right after the design-grid container
+            // Append controls right after the grid container
             grid.parentNode.insertBefore(controls, grid.nextSibling);
             
             // Left/Right scroll clicks

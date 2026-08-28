@@ -370,11 +370,36 @@ section {
 
 /* Projects Sections */
 .cards-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    scrollbar-width: none; /* Firefox */
 }
 
-.cards-grid.collapsed > .card:nth-child(n+4) {
-    display: none;
+.cards-grid::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.cards-grid .card {
+    flex: 0 0 calc(33.333% - 1rem); /* 3 items on desktop */
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+}
+
+@media screen and (max-width: 992px) {
+    .cards-grid .card {
+        flex: 0 0 calc(50% - 0.75rem); /* 2 items on tablet */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .cards-grid .card {
+        flex: 0 0 100%; /* 1 item on mobile */
+    }
 }
 
 /* Expand Button */
