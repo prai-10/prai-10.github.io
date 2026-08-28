@@ -105,21 +105,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Expand/Collapse Logic for Grids
-    const grids = document.querySelectorAll('.cards-grid, .design-grid');
-    
-    grids.forEach(grid => {
-        // Find how many actual items are in the grid (excluding any buttons we add)
-        const items = grid.querySelectorAll('.card, .design-item');
-        
+    // Expand/Collapse Logic for Cards Grid (Projects)
+    const cardsGrids = document.querySelectorAll('.cards-grid');
+    cardsGrids.forEach(grid => {
+        const items = grid.querySelectorAll('.card');
         if (items.length > 3) {
             grid.classList.add('collapsed');
             
-            // Create expand button container
             const btnContainer = document.createElement('div');
             btnContainer.className = 'expand-btn-container';
             
-            // Create expand button
             const btn = document.createElement('button');
             btn.className = 'expand-btn';
             btn.innerHTML = '<i class="fas fa-chevron-down"></i>';
@@ -128,17 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
             btnContainer.appendChild(btn);
             grid.appendChild(btnContainer);
             
-            // Handle click event
             btn.addEventListener('click', () => {
                 grid.classList.toggle('collapsed');
                 const icon = btn.querySelector('i');
                 
                 if (grid.classList.contains('collapsed')) {
-                    // Changing to show less
                     icon.classList.remove('fa-chevron-up');
                     icon.classList.add('fa-chevron-down');
                     
-                    // Smooth scroll back up to the start of this grid section
                     const section = grid.closest('section');
                     if (section) {
                         window.scrollTo({
@@ -147,10 +139,47 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                     }
                 } else {
-                    // Changing to show more
                     icon.classList.remove('fa-chevron-down');
                     icon.classList.add('fa-chevron-up');
                 }
+            });
+        }
+    });
+
+    // Horizontal Slider Logic for Design Grids
+    const designGrids = document.querySelectorAll('.design-grid');
+    designGrids.forEach(grid => {
+        const items = grid.querySelectorAll('.design-item');
+        if (items.length > 3) {
+            // Create controls
+            const controls = document.createElement('div');
+            controls.className = 'slider-controls';
+            
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'slider-btn prev-btn';
+            prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            prevBtn.setAttribute('aria-label', 'Scroll left');
+            
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'slider-btn next-btn';
+            nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            nextBtn.setAttribute('aria-label', 'Scroll right');
+            
+            controls.appendChild(prevBtn);
+            controls.appendChild(nextBtn);
+            
+            // Append controls right after the design-grid container
+            grid.parentNode.insertBefore(controls, grid.nextSibling);
+            
+            // Left/Right scroll clicks
+            nextBtn.addEventListener('click', () => {
+                const scrollAmount = grid.clientWidth * 0.8;
+                grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                const scrollAmount = grid.clientWidth * 0.8;
+                grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
             });
         }
     });

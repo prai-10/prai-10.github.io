@@ -499,13 +499,18 @@ section {
 }
 
 .design-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    scrollbar-width: none; /* Firefox */
 }
 
-.design-grid.collapsed > .design-item:nth-child(n+4) {
-    display: none;
+.design-grid::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
 }
 
 .design-item {
@@ -516,7 +521,53 @@ section {
     box-shadow: var(--shadow);
     aspect-ratio: 3/2;
     background: var(--card-bg);
+    flex: 0 0 calc(33.333% - 1rem); /* 3 items on desktop */
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
 }
+
+/* Slider Controls */
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.slider-btn {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.slider-btn:hover {
+    background: var(--primary);
+    color: var(--background);
+    box-shadow: 0 0 15px rgba(172, 88, 233, 0.6);
+}
+
+@media screen and (max-width: 992px) {
+    .design-item {
+        flex: 0 0 calc(50% - 0.75rem); /* 2 items on tablet */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .design-item {
+        flex: 0 0 100%; /* 1 item on mobile */
+    }
+}
+
 
 .design-img {
     width: 100%;
